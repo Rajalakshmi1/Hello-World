@@ -1,0 +1,10 @@
+c:\users\rajal\onedrive\documents\visual studio 2015\Projects\VallarTamilSchool\VallarTamilSchool\bin\Debug\VallarTamilSchool.exe.config
+c:\users\rajal\onedrive\documents\visual studio 2015\Projects\VallarTamilSchool\VallarTamilSchool\bin\Debug\VallarTamilSchool.exe
+c:\users\rajal\onedrive\documents\visual studio 2015\Projects\VallarTamilSchool\VallarTamilSchool\bin\Debug\VallarTamilSchool.pdb
+c:\users\rajal\onedrive\documents\visual studio 2015\Projects\VallarTamilSchool\VallarTamilSchool\bin\Debug\EntityFramework.dll
+c:\users\rajal\onedrive\documents\visual studio 2015\Projects\VallarTamilSchool\VallarTamilSchool\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\rajal\onedrive\documents\visual studio 2015\Projects\VallarTamilSchool\VallarTamilSchool\bin\Debug\EntityFramework.xml
+c:\users\rajal\onedrive\documents\visual studio 2015\Projects\VallarTamilSchool\VallarTamilSchool\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\rajal\onedrive\documents\visual studio 2015\Projects\VallarTamilSchool\VallarTamilSchool\obj\Debug\VallarTamilSchool.csprojResolveAssemblyReference.cache
+c:\users\rajal\onedrive\documents\visual studio 2015\Projects\VallarTamilSchool\VallarTamilSchool\obj\Debug\VallarTamilSchool.exe
+c:\users\rajal\onedrive\documents\visual studio 2015\Projects\VallarTamilSchool\VallarTamilSchool\obj\Debug\VallarTamilSchool.pdb

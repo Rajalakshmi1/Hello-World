@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SampleModelStoreContainer" CdmEntityContainer="SampleEntities">
+    <EntitySetMapping Name="Attendances">
+      <EntityTypeMapping TypeName="SampleModel.Attendance">
+        <MappingFragment StoreEntitySet="Attendance">
+          <ScalarProperty Name="AttendanceId" ColumnName="AttendanceId" />
+          <ScalarProperty Name="StudnetId" ColumnName="StudnetId" />
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+          <ScalarProperty Name="IsAbsent" ColumnName="IsAbsent" />
+          <ScalarProperty Name="IsTardy" ColumnName="IsTardy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Classes">
+      <EntityTypeMapping TypeName="SampleModel.Class">
+        <MappingFragment StoreEntitySet="Class">
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+          <ScalarProperty Name="StudnetId" ColumnName="StudnetId" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+          <ScalarProperty Name="ClassDescription" ColumnName="ClassDescription" />
+          <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+          <ScalarProperty Name="TeacherFirstName" ColumnName="TeacherFirstName" />
+          <ScalarProperty Name="TeacherLastName" ColumnName="TeacherLastName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sechedules">
+      <EntityTypeMapping TypeName="SampleModel.Sechedule">
+        <MappingFragment StoreEntitySet="Sechedule">
+          <ScalarProperty Name="SecheduleId" ColumnName="SecheduleId" />
+          <ScalarProperty Name="StudnetId" ColumnName="StudnetId" />
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+          <ScalarProperty Name="PrefferedSchedule" ColumnName="PrefferedSchedule" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="SampleModel.Student">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+          <ScalarProperty Name="StudentFirstName" ColumnName="StudentFirstName" />
+          <ScalarProperty Name="StudentLastName" ColumnName="StudentLastName" />
+          <ScalarProperty Name="StudentAddress" ColumnName="StudentAddress" />
+          <ScalarProperty Name="StudentAge" ColumnName="StudentAge" />
+          <ScalarProperty Name="ClassName" ColumnName="ClassName" />
+          <ScalarProperty Name="PrimaryPhoneNo" ColumnName="PrimaryPhoneNo" />
+          <ScalarProperty Name="SecondaryPhoneNo" ColumnName="SecondaryPhoneNo" />
+          <ScalarProperty Name="ParentsEmailId" ColumnName="ParentsEmailId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teachers">
+      <EntityTypeMapping TypeName="SampleModel.Teacher">
+        <MappingFragment StoreEntitySet="Teacher">
+          <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+          <ScalarProperty Name="TeachersFirstName" ColumnName="TeachersFirstName" />
+          <ScalarProperty Name="TeachersLastName" ColumnName="TeachersLastName" />
+          <ScalarProperty Name="TeahcersAddress" ColumnName="TeahcersAddress" />
+          <ScalarProperty Name="TeachersPhoneNo" ColumnName="TeachersPhoneNo" />
+          <ScalarProperty Name="TeachersEmailid" ColumnName="TeachersEmailid" />
+          <ScalarProperty Name="ClassId" ColumnName="ClassId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="324b4986f33f45c0b99f628790e74f34" Name="Diagram1">
+        <EntityTypeShape EntityType="SampleModel.Attendance" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleModel.Class" Width="1.5" PointX="6" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleModel.Sechedule" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleModel.Student" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleModel.Teacher" Width="1.5" PointX="8.25" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="SampleModel.FK__Attendanc__Class__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleModel.FK__Attendanc__Studn__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleModel.FK__Class__StudnetId__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleModel.FK__Class__TeacherId__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleModel.FK__Sechedule__Class__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleModel.FK__Teacher__ClassId__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleModel.FK__Sechedule__Studn__4316F928" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

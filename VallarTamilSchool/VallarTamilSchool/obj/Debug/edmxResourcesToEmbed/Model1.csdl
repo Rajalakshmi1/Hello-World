@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SampleModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Attendance">
+    <Key>
+      <PropertyRef Name="AttendanceId" />
+    </Key>
+    <Property Name="AttendanceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudnetId" Type="Int32" />
+    <Property Name="ClassId" Type="Int32" />
+    <Property Name="IsAbsent" Type="Boolean" />
+    <Property Name="IsTardy" Type="Boolean" />
+    <NavigationProperty Name="Class" Relationship="Self.FK__Attendanc__Class__47DBAE45" FromRole="Attendance" ToRole="Class" />
+    <NavigationProperty Name="Student" Relationship="Self.FK__Attendanc__Studn__46E78A0C" FromRole="Attendance" ToRole="Students" />
+  </EntityType>
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="ClassId" />
+    </Key>
+    <Property Name="ClassId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudnetId" Type="Int32" />
+    <Property Name="ClassName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ClassDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TeacherId" Type="Int32" />
+    <Property Name="TeacherFirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TeacherLastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Attendances" Relationship="Self.FK__Attendanc__Class__47DBAE45" FromRole="Class" ToRole="Attendance" />
+    <NavigationProperty Name="Student" Relationship="Self.FK__Class__StudnetId__3A81B327" FromRole="Class" ToRole="Students" />
+    <NavigationProperty Name="Teacher" Relationship="Self.FK__Class__TeacherId__3B75D760" FromRole="Class" ToRole="Teacher" />
+    <NavigationProperty Name="Sechedules" Relationship="Self.FK__Sechedule__Class__440B1D61" FromRole="Class" ToRole="Sechedule" />
+    <NavigationProperty Name="Teachers" Relationship="Self.FK__Teacher__ClassId__3D5E1FD2" FromRole="Class" ToRole="Teacher" />
+  </EntityType>
+  <EntityType Name="Sechedule">
+    <Key>
+      <PropertyRef Name="SecheduleId" />
+    </Key>
+    <Property Name="SecheduleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudnetId" Type="Int32" />
+    <Property Name="ClassId" Type="Int32" />
+    <Property Name="PrefferedSchedule" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Class" Relationship="Self.FK__Sechedule__Class__440B1D61" FromRole="Sechedule" ToRole="Class" />
+    <NavigationProperty Name="Student" Relationship="Self.FK__Sechedule__Studn__4316F928" FromRole="Sechedule" ToRole="Students" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StudentFirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="StudentLastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="StudentAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="StudentAge" Type="Int32" />
+    <Property Name="ClassName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="PrimaryPhoneNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="SecondaryPhoneNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="ParentsEmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Attendances" Relationship="Self.FK__Attendanc__Studn__46E78A0C" FromRole="Students" ToRole="Attendance" />
+    <NavigationProperty Name="Classes" Relationship="Self.FK__Class__StudnetId__3A81B327" FromRole="Students" ToRole="Class" />
+    <NavigationProperty Name="Sechedules" Relationship="Self.FK__Sechedule__Studn__4316F928" FromRole="Students" ToRole="Sechedule" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="TeacherId" />
+    </Key>
+    <Property Name="TeacherId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TeachersFirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TeachersLastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TeahcersAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="TeachersPhoneNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="TeachersEmailid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ClassId" Type="Int32" />
+    <NavigationProperty Name="Class" Relationship="Self.FK__Class__TeacherId__3B75D760" FromRole="Teacher" ToRole="Class" />
+    <NavigationProperty Name="Class1" Relationship="Self.FK__Teacher__ClassId__3D5E1FD2" FromRole="Teacher" ToRole="Class" />
+  </EntityType>
+  <Association Name="FK__Attendanc__Class__47DBAE45">
+    <End Role="Class" Type="Self.Class" Multiplicity="0..1" />
+    <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="ClassId" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Attendanc__Studn__46E78A0C">
+    <End Role="Students" Type="Self.Student" Multiplicity="0..1" />
+    <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentId" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="StudnetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Class__StudnetId__3A81B327">
+    <End Role="Students" Type="Self.Student" Multiplicity="0..1" />
+    <End Role="Class" Type="Self.Class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentId" />
+      </Principal>
+      <Dependent Role="Class">
+        <PropertyRef Name="StudnetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Class__TeacherId__3B75D760">
+    <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
+    <End Role="Class" Type="Self.Class" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="TeacherId" />
+      </Principal>
+      <Dependent Role="Class">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sechedule__Class__440B1D61">
+    <End Role="Class" Type="Self.Class" Multiplicity="0..1" />
+    <End Role="Sechedule" Type="Self.Sechedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="ClassId" />
+      </Principal>
+      <Dependent Role="Sechedule">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Teacher__ClassId__3D5E1FD2">
+    <End Role="Class" Type="Self.Class" Multiplicity="0..1" />
+    <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="ClassId" />
+      </Principal>
+      <Dependent Role="Teacher">
+        <PropertyRef Name="ClassId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sechedule__Studn__4316F928">
+    <End Role="Students" Type="Self.Student" Multiplicity="0..1" />
+    <End Role="Sechedule" Type="Self.Sechedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentId" />
+      </Principal>
+      <Dependent Role="Sechedule">
+        <PropertyRef Name="StudnetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SampleEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Attendances" EntityType="Self.Attendance" />
+    <EntitySet Name="Classes" EntityType="Self.Class" />
+    <EntitySet Name="Sechedules" EntityType="Self.Sechedule" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <EntitySet Name="Teachers" EntityType="Self.Teacher" />
+    <AssociationSet Name="FK__Attendanc__Class__47DBAE45" Association="Self.FK__Attendanc__Class__47DBAE45">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="Attendance" EntitySet="Attendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Attendanc__Studn__46E78A0C" Association="Self.FK__Attendanc__Studn__46E78A0C">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Attendance" EntitySet="Attendances" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Class__StudnetId__3A81B327" Association="Self.FK__Class__StudnetId__3A81B327">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Class" EntitySet="Classes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Class__TeacherId__3B75D760" Association="Self.FK__Class__TeacherId__3B75D760">
+      <End Role="Teacher" EntitySet="Teachers" />
+      <End Role="Class" EntitySet="Classes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sechedule__Class__440B1D61" Association="Self.FK__Sechedule__Class__440B1D61">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="Sechedule" EntitySet="Sechedules" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Teacher__ClassId__3D5E1FD2" Association="Self.FK__Teacher__ClassId__3D5E1FD2">
+      <End Role="Class" EntitySet="Classes" />
+      <End Role="Teacher" EntitySet="Teachers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sechedule__Studn__4316F928" Association="Self.FK__Sechedule__Studn__4316F928">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Sechedule" EntitySet="Sechedules" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
